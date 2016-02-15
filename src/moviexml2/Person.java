@@ -1,20 +1,18 @@
-package java_xml_handler;
+package moviexml2;
 
 public class Person
 {
 	private String firstName;
 	private String lastName;
 	private Gender gender;
-	private boolean hasOscar;
-	private boolean hasGoldenGlobe;
+	private int salary;
 
-	public Person(String firstName, String lastName, Gender gender, boolean hasOscar, boolean hasGoldenGlobe)
+	public Person(String firstName, String lastName, Gender gender, int salary)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
-		this.hasOscar = hasOscar;
-		this.hasGoldenGlobe = hasGoldenGlobe;
+		this.salary = salary;
 	}
 
 	public String getFirstName()
@@ -47,53 +45,18 @@ public class Person
 		this.gender = gender;
 	}
 
-	public boolean isHasOscar()
+	public int getSalary()
 	{
-		return hasOscar;
+		return salary;
 	}
 
-	public void setHasOscar(boolean hasOscar)
+	public void setSalary(int salary)
 	{
-		this.hasOscar = hasOscar;
-	}
-
-	public boolean isHasGoldenGlobe()
-	{
-		return hasGoldenGlobe;
-	}
-
-	public void setHasGoldenGlobe(boolean hasGoldenGlobe)
-	{
-		this.hasGoldenGlobe = hasGoldenGlobe;
+		this.salary = salary;
 	}
 
 	public String toString()
 	{
 		return firstName + " " + lastName;
-	}
-
-	public String toXMLString()
-	{
-		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append("<Person>");
-		stringBuffer.append("<FirstName>");
-		stringBuffer.append(firstName);
-		stringBuffer.append("</FirstName>");
-		stringBuffer.append("<LastName>");
-		stringBuffer.append(lastName);
-		stringBuffer.append("</LastName>");
-		stringBuffer.append("<Gender>");
-		stringBuffer.append(gender);
-		stringBuffer.append("</Gender>");
-		stringBuffer.append("<HasOscar>");
-		stringBuffer.append(hasOscar);
-		stringBuffer.append("</HasOscar>");
-		stringBuffer.append("<HasGoldenGlobe>");
-		stringBuffer.append(hasGoldenGlobe);
-		stringBuffer.append("</HasGoldenGlobe>");
-		stringBuffer.append("</Person>");
-
-		return stringBuffer.toString();
-
 	}
 }

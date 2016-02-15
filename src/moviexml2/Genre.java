@@ -1,4 +1,4 @@
-package java_xml_handler;
+package moviexml2;
 
 public enum Genre
 {
