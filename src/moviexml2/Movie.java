@@ -3,31 +3,24 @@ package moviexml2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Movie
+public class Movie extends Product implements Buyable
 {
-	String title;
 	Genre genre;
 	long duration;
 	double rate;
 	List<Person> cast;
+	int price;
 
-	public Movie(String title, Genre genre, long duration, double rate)
+	public Movie(String title, Genre genre, long duration, double rate, int price, Person person)
 	{
 		this.title = title;
 		this.genre = genre;
 		this.duration = duration;
 		this.rate = rate;
 		this.cast = new ArrayList<Person>();
-	}
-
-	public String getTitle()
-	{
-		return title;
-	}
-
-	public void setTitle(String title)
-	{
-		this.title = title;
+		this.price = price;
+		this.person = person;
+		this.id = IdGenerator.generate(this);
 	}
 
 	public Genre getGenre()
@@ -70,17 +63,26 @@ public class Movie
 		this.cast = cast;
 	}
 
-	public String toXMLString()
+	@Override
+	public int getPrice()
 	{
-		String result = "<Movie>" + "<Title>" + this.title + "</Title>" + "<Genre>" + this.genre + "</Genre>"
-				+ "<Duration>" + this.duration + "</Duration>" + "<Rate>" + this.rate + "</Rate>" + "<Cast>";
-		for (Person person : this.cast)
-		{
-			result += person.toXMLString();
-		}
-		result += "</Cast>" + "</Movie>";
-		return result;
+		return price;
+	}
 
+	public void setPrice(int price)
+	{
+		this.price = price;
+	}
+
+	@Override
+	public long getInvestment()
+	{
+		long result = 0;
+		for (Person person : cast)
+		{
+			result += person.getSalary();
+		}
+		return result;
 	}
 
 }
