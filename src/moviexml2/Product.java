@@ -4,13 +4,12 @@ public abstract class Product
 {
 
 	private String id;
-	private String title;
-	private Person person;
+	String title;
+	Person person;
 
-	public Product(String title, Person person)
+	public Product()
 	{
-		this.title = title;
-		this.person = person;
+		this.id = IdGenerator.generate(this);
 	}
 
 	public String getTitle()

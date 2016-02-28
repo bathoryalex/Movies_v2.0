@@ -7,14 +7,13 @@ public class Game extends Product implements Buyable
 {
 
 	private boolean preOrdered;
-	private List<Person> staff = new ArrayList<Person>();
+	private List<Person> staff;
 	private int price;
 
-	public Game(String title, Person person, boolean preOrdered, List<Person> staff, int price)
+	public Game(String title, Person person, boolean preOrdered, int price)
 	{
-		super(title, person);
 		this.preOrdered = preOrdered;
-		this.staff = staff;
+		this.staff =  new ArrayList<Person>();
 		this.price = price;
 	}
 

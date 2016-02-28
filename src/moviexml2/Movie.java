@@ -20,7 +20,6 @@ public class Movie extends Product implements Buyable
 		this.cast = new ArrayList<Person>();
 		this.price = price;
 		this.person = person;
-		this.id = IdGenerator.generate(this);
 	}
 
 	public Genre getGenre()

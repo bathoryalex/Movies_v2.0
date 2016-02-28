@@ -22,7 +22,6 @@ public class Book extends Product
 
 	public Book(String title, Person person, Person author)
 	{
-		super(title, person);
 		this.author = author;
 	}
 
